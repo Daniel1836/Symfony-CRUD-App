@@ -1,0 +1,20 @@
+index:
+    path: /post
+    controller: App\Controller\PostController::viewPostAction
+
+create:
+    path: /post/create
+    controller: App\Controller\PostController::createPostAction
+
+update:
+    path: /post/update/{id}
+    controller: App\Controller\PostController::updatePostAction
+
+view:
+    path: /post/view/{id}
+    controller: App\Controller\PostController::showPostAction
+
+delete:
+    path: /post/delete/{id}
+    controller: App\Controller\PostController::deletePostAction
+  
