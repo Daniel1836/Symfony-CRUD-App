@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Controller;
-//namespace AppBundle\Controller;
-//use AppBundle\Entity\Post;
+
 use App\Entity\Post;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -22,7 +20,6 @@ class PostController extends AbstractController
  */
     public function viewPostAction()
        {
-          // $post = $this->getDoctrine()->getRepository("AppBundle:Post")->findAll();
            $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
 
            return $this->render("index.html.twig", ['posts' => $posts]);
@@ -79,6 +76,7 @@ class PostController extends AbstractController
                $post->setTitle($title);
                $post->setDescription($description);
                $em->flush();
+            
                return $this->redirectToRoute('view_post_route');
            }
             return $this->render("update.html.twig", [
@@ -100,8 +98,8 @@ class PostController extends AbstractController
            $post = $em->getRepository(Post::class)->find($id);
            $em->remove($post);
            $em->flush();
+        
            return $this->redirectToRoute('view_post_route');
-
-            return $this->render("delete.html.twig");
+         
        }
   }
