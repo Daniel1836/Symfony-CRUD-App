@@ -5,19 +5,19 @@
 
 <table class="table table-striped table-hover">
 
-<thead>
+  <thead>
 
-<tr>
-<th>ID</th>
-<th>Title</th>
-<th>Description</th>
-<th>Action</th>
-</tr>
+   <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Action</th>
+   </tr>
 
-</thead>
+  </thead>
 
-<tbody>
-{% for post in posts %}
+ <tbody>
+   {% for post in posts %}
 
 <tr>
 <td>{{post.id}}</td>
@@ -28,7 +28,7 @@
 <a href="{{ absolute_url(asset('')) }}post/update/{{ post.id}}">Edit</a>
 <a href="{{ absolute_url(asset('')) }}post/delete/{{ post.id}}">Delete</a>
 </td>
-</tr>
+ </tr>
 {% else%}
 <tr>
 <td>No Records Found! </td>
